@@ -1,0 +1,11 @@
+# run supernova on certhia data that is uploaded to server, using the 10x recommended 
+# number of reads to use calculated from the estimate of the genome size
+/opt/apps/supernova-2.0.1/supernova run --id=certhia48106 --fastqs=/scratch/jmanthey/chromium_data/certhia/ \
+--maxreads=438144000
+
+# create fasta file of assembly using supernova
+/opt/apps/supernova-2.0.1/supernova mkoutput --style=pseudohap \
+--asmdir=/scratch/jmanthey/chromium_data/certhia48106/outs/assembly --outprefix=certhia48106 --minsize=10000
+
+# use bbmap locally to calculate some stats of the assembly
+bbmap/stats.sh in=./certhia_genome/certhia48106.fasta
