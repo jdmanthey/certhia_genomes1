@@ -1,0 +1,20 @@
+# run 15 iterations of LINKS (like in the tree paper that used it with two genome assemblies)
+# use the Canu and Supernova assemblies as input
+
+cd /links_v1.8.5/lib/bloomfilter/swig
+
+../../../LINKS -f /lustre/scratch/jmanthey/08_certhia_scaffolding/certhia_10x_scaffolds.fasta -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links1 -d 1000 -t 200,100,50 -k 22 -l 5 -a 0.3
+../../../LINKS -f links1.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links2 -d 5000 -t 200,100,50 -k 22 -l 5 -a 0.3
+../../../LINKS -f links2.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links3 -d 7500 -t 200,100,50 -k 22 -l 5 -a 0.3
+../../../LINKS -f links3.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links4 -d 10000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links4.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links5 -d 12500 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links5.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links6 -d 15000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links6.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links7 -d 20000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links7.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links8 -d 30000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links8.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links9 -d 40000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links9.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links10 -d 50000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links10.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links11 -d 60000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links11.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links12 -d 70000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links12.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links13 -d 80000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links13.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links14 -d 90000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
+../../../LINKS -f links14.scaffolds.fa -s /lustre/scratch/jmanthey/08_certhia_scaffolding/list.txt -b links15 -d 100000 -t 150,100,50,25 -k 22 -l 5 -a 0.3
