@@ -1,0 +1,11 @@
+# run Canu on the cluster
+
+qlogin -q omni -pe sm 2 -P quanah
+
+cd /lustre/scratch/jmanthey/07_certhia_canu/
+
+/lustre/work/jmanthey/canu-1.7.1/Linux-amd64/bin/canu -p certhia \
+-d certhia-pb genomeSize=1300000000 -pacbio-raw 01_input/certhia_part?.pb.fasta \
+gnuplotTested=true gridEngineMemoryOption="-l h_vmem=MEMORY" \
+gridEngineThreadsOption="-pe sm THREADS" gridOptions="-P quanah -q omni" \
+correctedErrorRate=0.065 corMhapSensitivity=normal
