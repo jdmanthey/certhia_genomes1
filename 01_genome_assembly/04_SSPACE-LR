@@ -1,0 +1,17 @@
+# Use SSPACE-LR to use the PB long reads to further scaffold the prior LINKS scaffolding
+
+# break up pacbio reads into many split files and run blasr on each of them separately
+# then put all of the results together for use in SSPACE-longread
+split -dl 110000 certhia_pb.fasta certhia_pb_ --additional-suffix=.fasta
+SSPACE-LongRead_v1-1/blasr /lustre/scratch/jmanthey/07_certhia_canu/01_input/certhia_pb_${SGE_TASK_ID}.fasta \
+/lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/intermediate_files/contigs.fa -minMatch 5 \
+-bestn 10 -noSplitSubreads -advanceExactMatches 1 -nCandidates 1 -maxAnchorsPerPosition 1 -sdpTupleSize 7 \
+-nproc 4 -out /lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/intermediate_files/blasr/${SGE_TASK_ID}.txt
+
+
+#SSPACE-longread
+# make sure to: conda install -c bioconda perl-perl4-corelibs
+source activate fgap
+perl ~/SSPACE-LongRead_v1-1/SSPACE-LongRead.pl -c /home/jmanthey/links_v1.8.5/lib/bloomfilter/swig/links15.scaffolds.fa \
+-p /lustre/scratch/jmanthey/07_certhia_canu/01_input/certhia_pb.fasta \
+-b /lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output -t 8 -g 5 -o 15 -k 1 -s 1
