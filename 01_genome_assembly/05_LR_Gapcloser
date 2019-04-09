@@ -1,0 +1,63 @@
+# Use LR_Gapcloser to use the PB reads to fill in gaps in all of the scaffolds
+# There was a lot of trial and error to get these jobs to run in a reasonable amount of time, 
+# so it is kind of messy. Basically, I ran BLASR to find which PB reads aligned to which scaffolds. 
+# I then subset each scaffold and associated PB reads for a job in LR_Gapcloser so that I could 
+# parallelize the jobs and have the program finish before I go up for tenure in several years.
+
+
+# index the new genome and the raw pacbio reads
+samtools faidx /lustre/scratch/jmanthey/07_certhia_canu/01_input/certhia_pb.fasta
+samtools faidx /lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/scaffolds.fasta
+
+# run blasr for the new genome that was assembled with sspace-lr
+SSPACE-LongRead_v1-1/blasr /lustre/scratch/jmanthey/07_certhia_canu/01_input/certhia_pb_${SGE_TASK_ID}.fasta \
+/lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/intermediate_files/contigs.fa -minMatch 5 \
+-bestn 10 -noSplitSubreads -advanceExactMatches 1 -nCandidates 1 -maxAnchorsPerPosition 1 -sdpTupleSize 7 \
+-nproc 4 -out /lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/intermediate_files/blasr/${SGE_TASK_ID}.txt
+
+# i originally wrote some of these scripts for use in fgap, and then couldn't get the program to work,
+# so a lot of it mentions fgap, even though it is being used for LR_Gapcloser
+
+# use r script blasr_results_segment.r to create files for each major scaffold and the pb reads that aligned 
+# to it for use in lr_gapcloser
+# run the next commands to subset the scaffolds and the pb reads that aligned to those scaffolds
+cd /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap
+mkdir fgap_pb
+mkdir fgap_scaffolds
+
+# run next 4 lines together
+for i in $( ls fgap_reads );
+do j=${i#pacbio_fgap_};
+xargs samtools faidx /lustre/scratch/jmanthey/07_certhia_canu/01_input/certhia_pb.fasta < fgap_reads/$i > fgap_pb/$j;
+done
+
+# run next 5 lines together
+count=1
+while read -r name1; 
+do samtools faidx /lustre/scratch/jmanthey/08_certhia_scaffolding/sspace_output/scaffolds.fasta $name1 > fgap_scaffolds/$count.txt
+count=`expr $count + 1`
+done < fgap_scaffolds.txt
+
+# LR_Gapcloser for each scaffold with the subsetted pacbio data that aligned to that scaffold
+LR_Gapcloser.sh -i /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_scaffolds/${SGE_TASK_ID}.txt -l /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_pb/${SGE_TASK_ID}.txt -t 4 -a 1 -m 300 -o /lustre/scratch/jmanthey/08_certhia_scaffolding/LRGAP/${SGE_TASK_ID}
+# check the outputs
+for i in $( ls /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_scaffolds/);
+do j=${i%.txt};
+echo $j;
+/lustre/work/jmanthey/bbmap/stats.sh in=/lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_scaffolds/$i | tail -n2 | head -n1;
+/lustre/work/jmanthey/bbmap/stats.sh in=/lustre/scratch/jmanthey/08_certhia_scaffolding/LRGAP/$j/iteration-1/gapclosed.fasta | tail -n2 | head -n1;
+done > upgrade.txt
+
+# rearrange file names and locations for array jobs
+cd /lustre/scratch/jmanthey/08_certhia_scaffolding/LRGAP;
+for i in $( ls );
+do mv ./$i/iteration-1/gapclosed.fasta ./lrgap_$i.txt;
+done
+
+# run alt_scaffolds_no_gap_filling.r script to extract genomic scaffolds not used in gap filling
+cd certhia_genome
+xargs samtools faidx scaffolds.fasta < scaffolds_no_gap_filling.txt > scaffolds_no_gap_filled.txt
+
+# run LR_Gapcloser
+LR_Gapcloser.sh -i /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_scaffolds/${SGE_TASK_ID}.txt -l /lustre/scratch/jmanthey/08_certhia_scaffolding/fgap/fgap_pb/${SGE_TASK_ID}.txt -t 4 -a 0.2 -m 300 -r 1 -n 1 -g 1000 -o /lustre/scratch/jmanthey/08_certhia_scaffolding/LRGAP/${SGE_TASK_ID}
+
