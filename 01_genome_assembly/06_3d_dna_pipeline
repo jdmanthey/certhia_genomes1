@@ -1,0 +1,26 @@
+# step 1
+# run juicer
+
+# Run juicer.sh with the flags -z <path to genome fasta file>, 
+# -p <path to mygenome.chrom.sizes>, and -y <path to mygenome_myenzyme.txt>
+
+# need to edit the juicer.sh script to include the project id  '-P quanah'
+# remove all 'use' commands from the script and remove all 'load' commands
+
+juicer/scripts/juicer.sh -z juicer/references/04_certhia_lrgap.fasta \
+-p juicer/restriction_sites/04_certhia_lrgap.chrom.sizes \
+-y juicer/restriction_sites/04_certhia_lrgap_Sau3AI.txt \
+-d /lustre/scratch/jmanthey/12_certhia_hic \
+-q omni -l omni -s Sau3AI -a 'Certhia genome assembly Hi-C' \
+-D juicer -Q 48:00:00 -L 48:00:00 -t 16 
+
+# juicer seems to fail after merging the sorted alignments, and need to run the deduping independent of the pipeline
+
+cd /lustre/scratch/jmanthey/12_certhia_hic/aligned
+touch dups.txt
+touch optdups.txt
+touch merged_nodups.txt
+cd
+awk -f juicer/scripts/dups.awk -v name=/lustre/scratch/jmanthey/12_certhia_hic/aligned/ \
+/lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_sort.txt
+
