@@ -30,7 +30,11 @@ cd working
 module load gnu
 
 ~/3d-dna/run-asm-pipeline.sh -r 2 --sort-output \
+--editor-coarse-resolution 250000 --editor-coarse-region 500000 --editor-fine-resolution 10000 \
+--polisher-coarse-resolution 250000 --polisher-fine-resolution 10000 \
+--splitter-coarse-resolution 250000 --splitter-fine-resolution 10000 \
 ~/juicer/references/04_certhia_lrgap.fasta /lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_nodups.txt
+
 
 
 
