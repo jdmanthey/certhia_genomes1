@@ -15,12 +15,24 @@ juicer/scripts/juicer.sh -z juicer/references/04_certhia_lrgap.fasta \
 -D juicer -Q 48:00:00 -L 48:00:00 -t 16 
 
 # juicer seems to fail after merging the sorted alignments, and need to run the deduping independent of the pipeline
+# first split the main merged file (it is too big) and run the awk script on each of the merged subsets
+cd /lustre/scratch/jmanthey/12_certhia_hic/aligned;
+split -l 3000000 merged_sort.txt split_merge;
 
-cd /lustre/scratch/jmanthey/12_certhia_hic/aligned
-touch dups.txt
-touch optdups.txt
-touch merged_nodups.txt
-cd
-awk -f juicer/scripts/dups.awk -v name=/lustre/scratch/jmanthey/12_certhia_hic/aligned/ \
-/lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_sort.txt
+# run the dedup.r script to remove duplicate reads, remove read pairs with either having mapping 
+# quality less than 10, and remove alignments where the paired end alignments are within
+# 500 bp of one another
+
+# run the 3d de novo assembly pipeline
+cd /lustre/scratch/jmanthey/12_certhia_hic/
+mkdir working
+cd working
+module load gnu
+
+~/3d-dna/run-asm-pipeline.sh -r 2 --sort-output \
+~/juicer/references/04_certhia_lrgap.fasta /lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_nodups.txt
+
+
+
+
 
