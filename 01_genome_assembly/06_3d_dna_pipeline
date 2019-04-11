@@ -15,7 +15,7 @@ juicer/scripts/juicer.sh -z juicer/references/04_certhia_lrgap.fasta \
 -D juicer -Q 48:00:00 -L 48:00:00 -t 16 
 
 # juicer seems to fail after merging the sorted alignments, and need to run the deduping independent of the pipeline
-# first split the main merged file (it is too big) and run the awk script on each of the merged subsets
+# first split the main merged file (it is too big) and run the dedup.r script on each of the merged subsets
 cd /lustre/scratch/jmanthey/12_certhia_hic/aligned;
 split -l 3000000 merged_sort.txt split_merge;
 
