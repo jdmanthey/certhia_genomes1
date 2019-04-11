@@ -40,6 +40,9 @@ input2 <- input2[match(unique(a_rep1), a_rep1),]
 # check mapping quality for both reads (columns 9 and 12)
 input2 <- input2[input2[,9] >= 10 & input2[,12] >= 10, ]
 
+# remove NA column on end
+input2 <- input2[,1:16]
+
 # write output of deduped total file
 write.table(input2, file="merged_nodups.txt", sep=" ", quote=F, row.names=F, col.names=F)
 
