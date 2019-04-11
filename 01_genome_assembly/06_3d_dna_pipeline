@@ -12,7 +12,7 @@ juicer/scripts/juicer.sh -z juicer/references/04_certhia_lrgap.fasta \
 -y juicer/restriction_sites/04_certhia_lrgap_Sau3AI.txt \
 -d /lustre/scratch/jmanthey/12_certhia_hic \
 -q omni -l omni -s Sau3AI -a 'Certhia genome assembly Hi-C' \
--D juicer -Q 48:00:00 -L 48:00:00 -t 16 
+-D juicer -Q 48:00:00 -L 48:00:00 -t 8 
 
 # juicer seems to fail after merging the sorted alignments, and need to run the deduping independent of the pipeline
 # first split the main merged file (it is too big) and run the dedup.r script on each of the merged subsets
@@ -29,10 +29,10 @@ mkdir working
 cd working
 module load gnu
 
-~/3d-dna/run-asm-pipeline.sh -r 2 --sort-output \
---editor-coarse-resolution 250000 --editor-coarse-region 500000 --editor-fine-resolution 10000 \
---polisher-coarse-resolution 250000 --polisher-fine-resolution 10000 \
---splitter-coarse-resolution 250000 --splitter-fine-resolution 10000 \
+~/3d-dna/run-asm-pipeline.sh -r 2 -i 50000 --sort-output \
+--editor-coarse-resolution 1000000 --editor-coarse-region 2000000 --editor-fine-resolution 100000 \
+--polisher-coarse-resolution 1000000 --polisher-fine-resolution 100000 \
+--splitter-coarse-resolution 1000000 --splitter-fine-resolution 100000 \
 ~/juicer/references/04_certhia_lrgap.fasta /lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_nodups.txt
 
 
