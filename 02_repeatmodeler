@@ -1,0 +1,9 @@
+# run repeatmodeler on the certhia hi-c genome (including all small scaffolds)
+
+
+# build database of new reference for repeatmodeler
+cd /lustre/work/jmanthey/certhia_genome
+BuildDatabase -engine ncbi -name certhia 05_certhia_hic.fasta
+
+# run repeat modeler
+RepeatModeler -database /lustre/work/jmanthey/certhia_genome/certhia -engine ncbi -pa 11
