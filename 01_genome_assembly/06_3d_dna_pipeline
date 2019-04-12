@@ -37,6 +37,20 @@ module load gnu
 
 
 
+# use the Juicebox Assembly Tools to manually check and correct any obvious issues with the assembly using the
+# assembly and hic files
+
+
+# run the asm pipeline post review tool to input the manually edited assembly file and create the final
+# fasta file and hic file for visualization
+
+~/3d-dna/run-asm-pipeline-post-review.sh -r ./04_certhia_lrgap.final.review.assembly --sort-output -i 50000 \
+--build-gapped-map \
+~/juicer/references/04_certhia_lrgap.fasta /lustre/scratch/jmanthey/12_certhia_hic/aligned/merged_nodups.txt
+
+
+
+
 
 
 
