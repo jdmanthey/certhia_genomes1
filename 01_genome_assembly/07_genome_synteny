@@ -1,0 +1,15 @@
+# use satsuma and R to create whole genome alignment with zebra finch chromosomes and make a circos plot
+
+export SATSUMA2_PATH=~/anaconda2/bin
+
+SatsumaSynteny2 -q certhia_hic_filtered.fasta -t finch_filtered.fasta -o satsuma
+# the above took too long, so used the below script to split it up
+
+# split up the genome into one fasta file per sequence (30 here)
+# then run satsuma for each fasta file separately
+
+for i in $( ls certhia_hic_[0-9]* ); do
+export SATSUMA2_PATH=~/anaconda2/bin;
+j=${i%.fasta};
+SatsumaSynteny2 -q $i -t finch_filtered.fasta -o $j;
+done
