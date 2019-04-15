@@ -37,3 +37,32 @@ done
 
 
 
+
+
+
+# some of the TE consensus sequences needed to be extended further, redo the above steps with the updated fasta
+# file that has already been extended. Some are also just for clarification of endpoints of TEs.
+
+# blast repeatmodeler output to certhia genome and take top 100 hits
+# output fields: qseqid qlen sseqid sstart send pident length evalue
+cd /lustre/work/jmanthey/certhia_genome
+blastn -query refine2_repeatmodeler.fasta -out certhia_repeatmodeler_genomic2.blast -task rmblastn -db ca_original \
+-evalue 1e-20 -outfmt '6 qseqid qlen sseqid sstart send pident length evalue' -perc_identity 90 -qcov_hsp_perc 20 \
+-max_target_seqs 100
+
+# filter the top 50 hits for each sequence (if > 50 exist) and create a bed file for extraction of genomic sequence and flanks
+# use the r script: certhia_filter_repeatmodeler_blast.r
+
+
+# use bedtools to extract fasta sequences from the reference genome based on the previous steps
+cd /lustre/work/jmanthey/certhia_genome/certhia_bed_extract2
+for i in $( ls );
+do j=$i.fasta;
+bedtools getfasta -fi /lustre/work/jmanthey/certhia_genome/05_certhia_hic.fasta -bed $i > $j;
+done
+
+
+
+
+
+
