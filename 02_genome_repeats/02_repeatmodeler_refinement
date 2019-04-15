@@ -24,3 +24,16 @@ blastn -query certhia-families.fa -out certhia_repeatmodeler_genomic.blast -task
 # filter the top 50 hits for each sequence (if > 50 exist) and create a bed file for extraction of genomic sequence and flanks
 # use the r script: certhia_filter_repeatmodeler_blast.r
 
+
+# use bedtools to extract fasta sequences from the reference genome based on the previous steps
+cd /lustre/work/jmanthey/certhia_genome/certhia_bed_extract
+for i in $( ls );
+do j=$i.fasta;
+bedtools getfasta -fi /lustre/work/jmanthey/certhia_genome/05_certhia_hic.fasta -bed $i > $j;
+done
+
+# take all the extracted fasta files for input into geneious to make mafft alignments and develop consensus sequences
+
+
+
+
