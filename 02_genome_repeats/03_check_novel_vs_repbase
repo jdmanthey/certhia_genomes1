@@ -1,0 +1,7 @@
+# check the novel repeats against repbase to see if there is any strong similarity of new elements to
+# previously characterized elements (for naming purposes)
+
+# rmblast the novel sequences to the repbase database
+# output fields: qseqid qlen sseqid pident length evalue
+blastn -query certhia_genome/Repeatmodeler_consensi2.fasta -out certhia_novel_repbase.blast -task rmblastn -db repbase \
+-evalue 1e-05 -outfmt '6 qseqid qlen sseqid pident length evalue' -max_target_seqs 100
