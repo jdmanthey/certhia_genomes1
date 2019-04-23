@@ -1,0 +1,3 @@
+#Run repeatmasker to annotate where repeats are in the certhia genome
+cd denovo_genomes
+RepeatMasker -pa 24 -s -lib ~/RepeatMasker/Libraries/custom_library_certhia.fa 06_certhia_reordered.fasta
