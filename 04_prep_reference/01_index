@@ -4,5 +4,5 @@ samtools faidx 06_certhia_reordered.fasta
 
 bwa index 06_certhia_reordered.fasta
 
-java -jar picard.jar CreateSequenceDictionary R=/lustre/home/jmanthey/06_certhia_reordered.fasta\
-O=/lustre/home/jmanthey/06_certhia_reordered.dict
+java -jar picard.jar CreateSequenceDictionary R=/home/jmanthey/references/06_certhia_reordered.fasta \
+O=/home/jmanthey/references/06_certhia_reordered.dict
