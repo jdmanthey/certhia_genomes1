@@ -1,0 +1,6 @@
+# rename the samples for compatability with the cluster array jobs
+
+cd /Volumes/Genomic2017/01_certhia_genomics/00_fastq
+while read -r name1 name2; do
+	mv $name1 $name2
+done < certhia_rename1.txt
