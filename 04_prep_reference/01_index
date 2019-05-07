@@ -1,0 +1,8 @@
+cd references
+
+samtools faidx 06_certhia_reordered.fasta
+
+bwa index 06_certhia_reordered.fasta
+
+java -jar picard.jar CreateSequenceDictionary R=/lustre/home/jmanthey/06_certhia_reordered.fasta\
+O=/lustre/home/jmanthey/06_certhia_reordered.dict
