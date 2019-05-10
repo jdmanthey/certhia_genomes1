@@ -1,0 +1,11 @@
+# rename the samples for compatability with the cluster array jobs
+
+cd /lustre/scratch/jmanthey/01_certhia_genomics/01_no_mtdna
+while read -r name1 name2; do
+	mv $name2 $name1
+done < certhia_rename_mito.txt
+
+# extract first 200000 sequences
+for i in $( ls *fastq.gz ); do
+gzip -cd $i | head -n800000 > ${i%.gz};
+done
