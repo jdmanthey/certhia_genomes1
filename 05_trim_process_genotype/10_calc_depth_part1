@@ -1,0 +1,7 @@
+samtools depth -a 1_final.bam 2_final.bam 3_final.bam 4_final.bam 5_final.bam 6_final.bam 7_final.bam 8_final.bam \
+9_final.bam 10_final.bam 11_final.bam 12_final.bam 13_final.bam 14_final.bam 15_final.bam 16_final.bam 17_final.bam \
+18_final.bam 19_final.bam 20_final.bam 21_final.bam 22_final.bam 23_final.bam 24_final.bam 25_final.bam > \
+certhia_coverage.txt
+
+
+zosterops_coverage.txt
