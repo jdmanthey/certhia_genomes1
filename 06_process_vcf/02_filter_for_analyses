@@ -34,3 +34,14 @@ vcftools --vcf $i --min-alleles 2 --max-alleles 2 --mac 1 --max-missing 0.65 --r
 --keep albescens.txt --recode --out $j;
 done
 
+
+
+# subset vcf files for only biallelic SNPs and indels
+for i in $( ls *recode.vcf ); do
+j=${i%.recode.vcf}_biallelic;
+vcftools --vcf $i --max-missing 0.7 --min-alleles 2 --max-alleles 2 --mac 1 --recode --recode-INFO-all --out $j;
+done
+
+
+
+
