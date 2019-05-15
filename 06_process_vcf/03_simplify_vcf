@@ -1,6 +1,37 @@
 # use bcftools to simplify the vcf files to reduce file size, complexity, and make them easier to work with
 
+# abba baba files
 for i in $( ls *_abba.recode.vcf ); do
 j=${i%_abba.recode.vcf}_abba.simple.vcf;
+bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
+done
+
+# main initially filtered dataset
+for i in $( ls *.recode.vcf ); do
+j=${i%.recode.vcf}.simple.vcf;
+bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
+done
+
+# phylogenetics filtered vcfs
+for i in $( ls *phylo.recode.vcf ); do
+j=${i%phylo.recode.vcf}phylo.simple.vcf;
+bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
+done
+
+# biallelic filtered vcfs
+for i in $( ls *biallelic.recode.vcf ); do
+j=${i%biallelic.recode.vcf}biallelic.simple.vcf;
+bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
+done
+
+# ldhat americana filtered vcfs
+for i in $( ls *americana.recode.vcf ); do
+j=${i%americana.recode.vcf}americana.simple.vcf;
+bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
+done
+
+# ldhat albescens filtered vcfs
+for i in $( ls *albescens.recode.vcf ); do
+j=${i%albescens.recode.vcf}albescens.simple.vcf;
 bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' $i > $j;
 done
