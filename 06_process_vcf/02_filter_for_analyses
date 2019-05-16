@@ -7,17 +7,6 @@ done
 
 
 
-# process lightly filtered genotypes again in different way including minimizing missing data 
-# and removing invariant sites for ABBA / BABA tests
-# maximum number of alleles = 2 (2 alleles used in ABBA / BABA test)
-# at least one sampled minor allele
-# removal of the outgroup (individual #25)
-
-for i in $( ls *recode.vcf ); do
-j=${i%.recode.vcf}_abba;
-vcftools --vcf $i --remove-indv 25 --min-alleles 2 --max-alleles 2 --mac 1 --max-missing 0.7 --remove-indels \
---recode --recode-INFO-all --out $j;
-done
 
 # subset each of the vcf files for each taxon (americana and albescens) for use in ldhat
 # require a minimum of 8 individuals (16 alleles) for each population
@@ -37,6 +26,7 @@ done
 
 
 # subset vcf files for only biallelic SNPs and indels
+# for abba /baba and look at fixed shared private polymorphisms
 for i in $( ls *recode.vcf ); do
 j=${i%.recode.vcf}_biallelic;
 vcftools --vcf $i --max-missing 0.7 --min-alleles 2 --max-alleles 2 --mac 1 --recode --recode-INFO-all --out $j;
