@@ -1,0 +1,5 @@
+cd /lustre/work/jmanthey/LDhat-master/lk_files
+
+../lkgen -lk lk_n50_t0.001 -nseq 12
+
+mv new_lk.txt ../input/certhia_lk.txt
