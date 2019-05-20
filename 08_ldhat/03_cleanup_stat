@@ -1,0 +1,15 @@
+# first need to clean up the many GB or TB of files
+cd /lustre/scratch/jmanthey/ldhat/submit_scripts
+rm *bounds.txt
+rm *new_lk.txt
+rm *type_table.txt
+rm machinefile*
+rm americana_Ca_*
+rm albescens_Ca_*
+
+# use the ldhat stat to summarize all the rates files
+for i in $( ls *rates.txt );
+do j=$(basename $i);
+j=${j%rates.txt};
+/lustre/work/jmanthey/LDhat-master/stat -input $i -burn 21 -prefix $j;
+done
