@@ -1,0 +1,14 @@
+# move to working directory
+cd /lustre/scratch/jmanthey/00_certhia_maker
+
+# make the control files 
+maker -CTL
+
+# edit the control files as necessary
+# here, I used three protein files for the first round of maker:
+# GCF_001522545.3_Parus_major1.1_protein.faa
+# GCF_000247815.1_FicAlb1.5_protein.faa
+# GCF_000151805.1_Taeniopygia_guttata-3.2.4_protein.faa
+
+# run maker round 1
+mpiexec -n 36 maker 2>&1 maker_round1.log
