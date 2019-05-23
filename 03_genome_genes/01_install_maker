@@ -1,0 +1,12 @@
+# of all the ways that i tried to install maker with either mpich or openmpi (including the versions already on the 
+# cluster), the following is the only way that worked:
+
+conda install -c conda-forge mpich
+
+cd ~
+cd maker/src
+perl Build.PL
+# configure as necessary in the prompts
+./Build installdeps
+./Build installexes
+./Build install
