@@ -1,0 +1,18 @@
+# installed busco in new conda environment 
+source activate busco
+# then by first running 
+conda install -c bioconda busco 
+# the version of augustus installed here did not work so updated with:
+conda install -c bioconda augustus 
+
+
+
+# always activate before running (other conda environments have versions of busco that are broken)
+source activate busco
+
+# before running busco edit and export the path to the config file
+export BUSCO_CONFIG_FILE="/home/jmanthey/busco/config.ini"
+
+run_busco --in /home/jmanthey/references/06_certhia_reordered.fasta \
+--out  busco_output --lineage_path /home/jmanthey/busco/tetrapoda_odb9/ \
+--mode genome -sp human -c 16 
