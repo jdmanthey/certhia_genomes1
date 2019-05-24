@@ -206,9 +206,9 @@ div_certhia <- function(xxx, output_number) {
 		}
 		
 		# mean of all fst 
-		a_fst <- mean(fst_all) 
+		a_fst <- sum(numerator_fst_all) / sum(denominator_fst_all) 
 		
-		# combine and write dxy stats to output
+		# combine and write fst stats to output
 		a_output <- c("fst", fst_test_names[[a]], a_sites, a_variant_sites, a_fst)
 		write(a_output, file=paste("output/div_certhia_", output_number, ".txt", sep=""), ncolumns=5, sep="\t", append=T)
 			
