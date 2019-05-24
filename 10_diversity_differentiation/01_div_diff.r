@@ -172,18 +172,37 @@ div_certhia <- function(xxx, output_number) {
 		a_variant_sites <- nrow(a_rep1)
 		
 		# loop for each site to calculate fst
-		fst_all <- c()
+		numerator_fst_all <- c()
+		denominator_fst_all <- c()
 		for(b in 1:nrow(a_rep1)) {
 			# subset to this snp
 			b_rep1 <- as.character(a_rep1[b,])
 			b_rep2 <- as.character(a_rep2[b,])
 			
 			# fst is the reich et al. 2009 estimator for small sample sizes
-			pop1_allele_count <- length(b_rep1) * 2
-			pop2_allele_count <- length(b_rep2) * 2
+			# equation presented nicer in Willing et al. 2012 page 9
+			pop1_ind_count <- length(b_rep1) 
+			pop2_ind_count <- length(b_rep2)
+			alt_allele_count1 <- (2 * length(b_rep1[b_rep1 == "1/1"]) + 1 * length(b_rep1[b_rep1 == "0/1"]))
+			alt_allele_count2 <- (2 * length(b_rep2[b_rep2 == "1/1"]) + 1 * length(b_rep2[b_rep2 == "0/1"]))
+			all_allele_count1 <- 2 * length(b_rep1)
+			all_allele_count2 <- 2 * length(b_rep2)
+			expected_het1 <- (alt_allele_count1 * (all_allele_count1 - alt_allele_count1)) / 
+			(all_allele_count1 * (all_allele_count1 - 1))
+			expected_het2 <- (alt_allele_count2 * (all_allele_count2 - alt_allele_count2)) / 
+			(all_allele_count2 * (all_allele_count2 - 1))
 			
+			# find the fst numerator and denominator values for this snp (they all get summed and divided for 
+			# the final estimate)
+			numerator_rep <- (alt_allele_count1 / (2 * pop1_ind_count) - 
+			alt_allele_count2 / (2 * pop2_ind_count))^2 - (expected_het1 / (2 * pop1_ind_count)) - 
+			(expected_het2 / (2 * pop2_ind_count))
 			
+			denominator_rep <- numerator_rep + expected_het1 + expected_het2
 			
+			# add to total outputs
+			numerator_fst_all <- c(numerator_fst_all, numerator_rep)
+			denominator_fst_all <- c(denominator_fst_all, denominator_rep)
 		}
 		
 		# mean of all fst 
