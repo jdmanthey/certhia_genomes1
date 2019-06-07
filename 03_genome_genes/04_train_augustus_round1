@@ -30,3 +30,22 @@ run_busco --in Certhia_rnd1.all.maker.transcripts1000.fasta \
 --mode genome -sp human -c 36 -z --long --augustus_parameters='--progress=true'
 
 
+# when the busco run finishes (this took 2.5 days on 36 processors)
+cd /lustre/scratch/jmanthey/00_certhia_maker/augustus/round1/run_busco_output_round1/augustus_output/retraining_parameters
+rename 'BUSCO_busco_output_round1_1664520950' 'Certhia' *
+sed -i 's/BUSCO_busco_output_round1_1664520950/Certhia/g' Certhia_parameters.cfg
+sed -i 's/BUSCO_busco_output_round1_1664520950/Certhia/g' Certhia_parameters.cfg.orig1 
+mkdir $AUGUSTUS_CONFIG_PATH/species/Certhia
+cp Certhia_* $AUGUSTUS_CONFIG_PATH/species/Certhia/
+
+
+
+
+
+
+
+
+
+
+
+
