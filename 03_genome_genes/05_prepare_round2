@@ -23,5 +23,14 @@ mv -r 06_certhia_reordered.maker.output/ maker_output_round1/
 
 # modify the control file (copied in this directory)
 
-# run maker round 2
+# run maker round 2 (this took ~ 12 hours)
 mpiexec -n 108 maker
+
+# summarize maker output
+
+cd /lustre/scratch/jmanthey/00_certhia_maker/06_certhia_reordered.maker.output
+
+gff3_merge -s -d 06_certhia_reordered_master_datastore_index.log > certhia_round2.all.maker.gff
+fasta_merge -d 06_certhia_reordered_master_datastore_index.log
+gff3_merge -s  -n -d 06_certhia_reordered_master_datastore_index.log > certhia_round2.all.maker.noseqs.gff
+
