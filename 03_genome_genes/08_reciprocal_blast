@@ -33,3 +33,11 @@ blastn -query parus_cds_renamed.fasta -out q_parus_s_certhia.blast -task blastn 
 
 blastn -query taeniopygia_cds_renamed.fasta -out q_taeniopygia_s_certhia.blast -task blastn -db certhia_cds \
 -evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+
+
+# run the r script a_reciprocal_blast_parsing.r 
+# this script looks at all of the blast results and finds the genes where certhia and the other species have reciprocal
+# best hits for certhia genes
+# this then makes a summary table of the names of all of these genes and a fasta file for each group
+# for future multiple alignment and tests for selection, etc.
