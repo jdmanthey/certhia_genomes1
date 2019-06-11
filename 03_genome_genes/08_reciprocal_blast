@@ -1,0 +1,35 @@
+# remove all spaces in fasta files and replace with periods
+sed -i 's/ /./g' certhia_cds_renamed.fasta
+sed -i 's/ /./g' ficedula_cds_renamed.fasta
+sed -i 's/ /./g' parus_cds_renamed.fasta
+sed -i 's/ /./g' taeniopygia_cds_renamed.fasta
+
+# make blast databases for each of the four species' CDS files
+
+makeblastdb -in certhia_cds_renamed.fasta -dbtype nucl -out certhia_cds
+makeblastdb -in ficedula_cds_renamed.fasta -dbtype nucl -out ficedula_cds
+makeblastdb -in parus_cds_renamed.fasta -dbtype nucl -out parus_cds
+makeblastdb -in taeniopygia_cds_renamed.fasta -dbtype nucl -out taeniopygia_cds
+
+# blast certhia to each of the others' databases
+# output fields: qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore
+
+blastn -query certhia_cds_renamed.fasta -out q_certhia_s_ficedula.blast -task blastn -db ficedula_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+blastn -query certhia_cds_renamed.fasta -out q_certhia_s_parus.blast -task blastn -db parus_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+blastn -query certhia_cds_renamed.fasta -out q_certhia_s_taeniopygia.blast -task blastn -db taeniopygia_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+# blast other species to certhia database
+
+blastn -query ficedula_cds_renamed.fasta -out q_ficedula_s_certhia.blast -task blastn -db certhia_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+blastn -query parus_cds_renamed.fasta -out q_parus_s_certhia.blast -task blastn -db certhia_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
+
+blastn -query taeniopygia_cds_renamed.fasta -out q_taeniopygia_s_certhia.blast -task blastn -db certhia_cds \
+-evalue 1e-6 -outfmt 6 -max_target_seqs 100 -num_threads 12
