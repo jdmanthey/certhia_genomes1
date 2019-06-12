@@ -13,4 +13,5 @@ x2 <- keep.tip(x, tips_to_keep)
 
 write.tree(x2, file="pruned_tree.tre")
 
-# in a text editor modified the taxa names to match those that we are using in PAML
+# in a text editor modified the taxa names to match those that we are using in CODEML
+# also add a #1 to the Certhia branch for the branch specific model in CODEML
