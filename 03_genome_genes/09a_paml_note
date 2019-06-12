@@ -1,0 +1,8 @@
+# when installing paml, remove the following lines from the c source code (treesub.c):
+# if (NColumnEdited) {
+#      printf("\n%2d columns are converted into ??? because of stop codons\nPress Enter to continue", NColumnEdited);
+#      getchar();
+#   }
+
+# this will ensure that any spurious stop codons as well as the normal stop codons at the end of each alignment are converted
+# to question marks and you are not queued about whether to change this or not
