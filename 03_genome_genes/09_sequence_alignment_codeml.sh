@@ -32,7 +32,7 @@ sed -i 's/blank_output.txt/1_output.txt/g' codeml.ctl
 
 # run 1st iteration of codeml
 codeml codeml.ctl
-\n
+
 
 
 
