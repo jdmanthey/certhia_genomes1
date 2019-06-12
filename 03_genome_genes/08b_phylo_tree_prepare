@@ -1,0 +1,16 @@
+# downloaded dated phylogenetic tree from:
+# (family level passeriformes tree)
+
+# used the following R code to extract taxa of interest (or taxa from same family)
+
+require(ape)
+
+x <- read.nexus(file="Figure-1.txt")
+
+tips_to_keep <- c("Certhia_americana", "Estrilda_melpoda", "Muscicapa_striata", "Parus_major")
+
+x2 <- keep.tip(x, tips_to_keep)
+
+write.tree(x2, file="pruned_tree.tre")
+
+# in a text editor modified the taxa names to match those that we are using in PAML
