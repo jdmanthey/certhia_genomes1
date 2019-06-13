@@ -1,0 +1,4 @@
+cd /lustre/scratch/jmanthey/01_certhia_genomics/03_vcf
+while read -r name1 name2; do
+	mv $name1 $name2
+done < rename_vcf.txt
