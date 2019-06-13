@@ -18,4 +18,6 @@ phyml -i _total_4d_sites.nex -d nt -q -m GTR -v e -u unrooted_tree.tre -o lr
 # next, to estimate the substitution rate in Certhia, estimate the % divergence by the branch length in the tree
 # and dividing that by the mean and 95% HPD of the divergence time between Certhia and Ficedula
 # divergence times from input phylogeny (in millions of years): mean = 25.996, 95% HPD = 22.958 - 29.055
-
+# calculation = certhia_branch_length / (divergence_times * 1e6)
+# in r:
+certhia_branch_length / ( c(22.958, 25.996, 29.055) * 1e6 )
