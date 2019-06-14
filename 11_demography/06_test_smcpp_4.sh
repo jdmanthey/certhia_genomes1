@@ -12,5 +12,5 @@
 source activate smcpp_mod
 
 # run with americana
-smc++ cv 2.506e-09 -o americana_test1 --cores 12 --knots 16 --timepoints 5e2 3e6 --regularization-penalty 15 \
+smc++ cv 2.506e-09 -o americana_test4 --cores 12 --knots 16 --timepoints 5e2 3e6 --regularization-penalty 15 \
 --spline cubic *americana.smc
