@@ -1,0 +1,4 @@
+cd /lustre/scratch/jmanthey/01_certhia_genomics/03_vcf/smc_vcf
+
+# zip all the bed masks
+for i in $( ls *mask.bed ); do bgzip $i; done
