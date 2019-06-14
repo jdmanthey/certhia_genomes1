@@ -20,4 +20,5 @@ phyml -i _total_4d_sites.nex -d nt -q -m GTR -v e -u unrooted_tree.tre -o lr
 # divergence times from input phylogeny (in millions of years): mean = 25.996, 95% HPD = 22.958 - 29.055
 # calculation = certhia_branch_length / (divergence_times * 1e6)
 # in r:
-certhia_branch_length / ( c(22.958, 25.996, 29.055) * 1e6 )
+0.06516918 / ( c(22.958, 25.996, 29.055) * 1e6 )
+# output: 2.838626e-09 2.506893e-09 2.242959e-09
