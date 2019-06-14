@@ -1,3 +1,6 @@
+
+options(scipen=999)
+
 x_files <- list.files(pattern="*sites")
 x_names <- paste(substr(x_files, 1, nchar(x_files) - 6), "_mask.bed", sep="")
 
