@@ -2,7 +2,7 @@
 #$ -V
 #$ -cwd
 #$ -S /bin/bash
-#$ -N prep_smc
+#$ -N test_smc
 #$ -q omni
 #$ -pe sm 12
 #$ -P quanah
