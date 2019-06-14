@@ -1,0 +1,15 @@
+# make a new directory and move all the smc++ input vcf files into that directory
+
+cd /lustre/scratch/jmanthey/01_certhia_genomics/03_vcf
+
+mkdir smc_vcf
+cd smc_vcf
+
+mv ../*vcf.gz* .
+
+cd ..
+
+# make a directory for and move all sites files for analysis to make bed masks for smc++
+mkdir sites
+cd sites
+mv ../*sites .
