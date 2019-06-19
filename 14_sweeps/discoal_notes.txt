@@ -1,0 +1,66 @@
+Note: Comment from Andrew Kern on the discoal issues:
+discoal scales all parameters by 4N or 2N as appropriate. 
+Thus the user sets \rho, which is equivalent to 4Nr where r is the 
+rate per locus per generation. The same would be true for u -- that 
+would be the mutation rate per locus per generation
+-Based on these info, all params need to be scaled by the window size.
+
+
+recombination prior = c(0.0033,0.0754) * 220000 # rate per bp * locus size    
+                    = 726 16588
+albescens pop. size estimate at 15kya = 1202563
+americana pop. size estimate at 15 kya = 1985757
+
+theta 
+note: mutation rate is per generation per locus, so mu = 2.507e-9 / 2 * 220000 = 0.00027577
+albescens theta prior = 0.00027577 * 4 * c(1202563 / 2 , 1202563 * 2) # half to double Ne to account for variation across genome
+                      = 663.2616 2653.0464
+americana theta prior = 0.00027577 * 4 * c(1985757 / 2 , 1985757 * 2)
+                      = 1095.224 4380.898
+sample size albescens = 7
+sample size americana = 12
+n simulations 2000
+window size = 220000
+subwindow size = 20000
+
+prior on F0 (Pf) = 0 0.2 # for soft sweep sims only
+prior on tau (Pu) = between present and 10000 generations ago
+      albescens   = c(0, 10000) / 4 / 1202563
+                  = 0 0.0021
+      americana   = c(0, 10000) / 4 / 1985757
+                  = 0 0.0013
+prior on alpha (Pa) (2Ns) = selection coefficients between 0.00025 and 0.025
+      albescens   = c(0.00025, 0.025) * 2 * 1202563
+                  = 601.2815 60128.1500 
+      americana   = c(0.00025, 0.025) * 2 * 1985757
+                  = 992.8785 99287.8500
+
+11 windows x positions = 
+0.045454545454545456
+0.13636363636363635
+0.22727272727272727 
+0.3181818181818182
+0.4090909090909091
+0.5 
+0.5909090909090909
+0.6818181818181818
+0.7727272727272727 
+0.8636363636363636
+0.9545454545454546 
+
+population size changes in discoal format:
+albescens
+-en 0.000632203 0 2.019974718 -en 0.000869762 0 2.972900594 -en 0.001390269 0 3.018899092 \
+-en 0.001675123 0 2.670204345 -en 0.001977748 0 2.258370383 -en 0.003003693 0 2.031222469 \
+-en 0.003389207 0 1.87704179 -en 0.003798772 0 2.031954987 -en 0.005187257 0 2.26223803 \
+-en 0.00685217 0 3.152411573 -en 0.00814243 0 4.499390796 -en 0.010395677 0 6.300326634 \
+-en 0.01214188 0 8.671650017 -en 0.01519136 0 11.63822226 -en 0.018847949 0 14.89414223 \
+-en 0.037163017 0 16.59131765 -en 0.045193853 0 12.06869701 -en 0.054823515 0 1.085728395 \
+-en 0.066370308 0 0.840997371 -en 0.080215905 0 1.121015277
+
+americana 
+-en 0.000416271 0 1.007787701 -en 0.000924663 0 1.244825008 -en 0.001545564 0 1.753256096 \
+-en 0.002303873 0 2.622529986 -en 0.003229997 0 4.182225883 -en 0.004791216 0 7.0075739 \
+-en 0.008071148 0 10.12585926 -en 0.010273586 0 6.897605936 -en 0.013986359 0 0.684047003 \
+-en 0.015079778 0 0.311438371 -en 0.020260664 0 0.309098713 -en 0.027024118 0 0.337504654 \
+-en 0.029015968 0 0.335483718 -en 0.038453841 0 0.333969825 -en 0.047380056 0 0.323962948
