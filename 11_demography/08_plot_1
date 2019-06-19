@@ -1,16 +1,8 @@
-cd /lustre/scratch/jmanthey/01_certhia_genomics/03_vcf/smc_vcf/americana_1
+cd /lustre/scratch/jmanthey/01_certhia_genomics/03_vcf/smc_vcf/americana_2
 
-smc++ plot americana_1.pdf model.final.json -c -g 2
-
-cd ../americana_2
-
-smc++ plot americana_2.pdf model.final.json -c -g 2
-
-cd ../albescens_1
-
-smc++ plot albescens_1.pdf model.final.json -c -g 2
+smc++ plot americana.pdf model.final.json -c -g 2
 
 cd ../albescens_2
 
-smc++ plot albescens_2.pdf model.final.json -c -g 2
+smc++ plot albescens.pdf model.final.json -c -g 2
 
