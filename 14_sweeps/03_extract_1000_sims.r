@@ -15,7 +15,7 @@ for(a in 1:length(x_files)) {
 	a_rep <- readLines(con)
 	
 	# determine which species this file is for
-	if(grep("albescens", x_names[a]) == 1) {
+	if(length(grep("albescens", x_names[a])) == 1) {
 		a_number <- num_individuals_albescens + 1
 	} else {
 		a_number <- num_individuals_americana + 1		
