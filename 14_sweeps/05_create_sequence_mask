@@ -22,15 +22,12 @@ for(a in 1:length(chrom)) {
 	
 }
 
-# in shell
-gzip total_mask_sorted.bed
-
-
 
 
 # in shell
 cd /home/jmanthey/references
 head -n26 06_certhia_reordered.fasta.fai | cut -f1 > selection_sequence_list_certhia.txt
 xargs samtools faidx 06_certhia_reordered.fasta < selection_sequence_list_certhia.txt > diplo_genome.fasta
-gzip diplo_genome.fasta
-bedtools maskfasta -fi diplo_genome.fasta.gz -bed total_mask_sorted.bed.gz -fo diplo_mask.fasta.gz
+bedtools maskfasta -fi diplo_genome.fasta -bed total_mask_sorted.bed -fo diplo_mask.fasta
+
+gzip diplo_mask.fasta
