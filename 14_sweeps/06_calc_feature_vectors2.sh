@@ -16,7 +16,3 @@ python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_neutral.txt.gz \
 albescens_neutral.fvec --totalPhysLen 220000 \
 --maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
 
-
-python ~/diploSHIC/diploSHIC.py fvecSim diploid americana_neutral.txt.gz \
-americana_neutral.fvec --totalPhysLen 220000 \
---maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
