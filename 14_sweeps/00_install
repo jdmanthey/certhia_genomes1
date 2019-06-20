@@ -1,0 +1,15 @@
+conda create -n selection2 python=3.6.8
+
+conda activate selection2
+
+conda install -c conda-forge scikit-allel
+
+pip install tensorflow
+
+pip install keras
+
+git clone https://github.com/kern-lab/diploSHIC.git
+
+cd diploSHIC
+
+python setup.py install
