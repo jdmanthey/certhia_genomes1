@@ -1,0 +1,17 @@
+cd /lustre/scratch/jmanthey/07_certhia_sim
+
+# apparently the maketrainingsets command cannot have extra underscores
+rename 'americana_' 'americana' *
+rename 'albescens_' 'albescens' *
+
+mkdir rawFVFiles && mv *.fvec rawFVFiles/
+
+mkdir training_americana
+mkdir training_albescens
+
+python ~/diploSHIC/diploSHIC.py makeTrainingSets rawFVFiles/albescensneutral.fvec \
+rawFVFiles/albescenssoft rawFVFiles/albescenshard 5 0,1,2,3,4,6,7,8,9,10 training_albescens
+
+python ~/diploSHIC/diploSHIC.py makeTrainingSets rawFVFiles/americananeutral.fvec \
+rawFVFiles/americanasoft rawFVFiles/americanahard 5 0,1,2,3,4,6,7,8,9,10 training_americana
+
