@@ -18,18 +18,3 @@ python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_hard_${revised_number}
 albescens_hard_${revised_number}.fvec --totalPhysLen 220000 \
 --maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
 
-
-python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_soft_${revised_number}.txt.gz \
-albescens_soft_${revised_number}.fvec --totalPhysLen 220000 \
---maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
-
-
-python ~/diploSHIC/diploSHIC.py fvecSim diploid americana_hard_${revised_number}.txt.gz \
-americana_hard_${revised_number}.fvec --totalPhysLen 220000 \
---maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
-
-
-python ~/diploSHIC/diploSHIC.py fvecSim diploid americana_soft_${revised_number}.txt.gz \
-americana_soft_${revised_number}.fvec --totalPhysLen 220000 \
---maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
-
