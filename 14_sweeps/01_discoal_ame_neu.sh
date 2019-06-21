@@ -12,7 +12,7 @@
 
 source activate selection
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -en 0.000416271 0 1.007787701 -en 0.000924663 0 1.244825008 -en 0.001545564 0 1.753256096 \
