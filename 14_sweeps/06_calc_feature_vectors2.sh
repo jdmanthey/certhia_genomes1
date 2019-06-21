@@ -4,7 +4,7 @@
 #$ -S /bin/bash
 #$ -N fvec_alb1
 #$ -q omni
-#$ -pe sm 1
+#$ -pe sm 4
 #$ -P quanah
 #$ -l h_rt=48:00:00
 #$ -l h_vmem=8G
