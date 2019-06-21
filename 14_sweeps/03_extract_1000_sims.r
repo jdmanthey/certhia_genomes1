@@ -4,8 +4,8 @@ x_names <- gsub("alb", "albescens", x_names)
 x_names <- gsub("ame", "americana", x_names)
 x_names <- paste(x_names, ".txt", sep="")
 
-num_individuals_albescens <- 7
-num_individuals_americana <- 12
+num_individuals_albescens <- 14
+num_individuals_americana <- 24
 
 # we will keep the first 1000 simulations that finished for each 
 # loop for each file
@@ -26,6 +26,7 @@ for(a in 1:length(x_files)) {
 	
 	# remove simulations with zero segregating sites from the list
 	a_lines <- a_lines[a_rep[a_lines] != "segsites: 0"]
+	print(length(a_lines))
 	
 	# write header
 	write(a_rep[1], file=x_names[a], ncolumns=1)
@@ -33,7 +34,7 @@ for(a in 1:length(x_files)) {
 	
 	# get 1000 simulations for each file
 	counter <- 1
-	while(counter < 1000) {
+	while(counter <= 1000) {
 		write("", file=x_names[a], ncolumns=1, append=T)
 		write("//", file=x_names[a], ncolumns=1, append=T)
 		
