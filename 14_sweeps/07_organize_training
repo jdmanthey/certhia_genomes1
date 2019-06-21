@@ -1,4 +1,4 @@
-cd /lustre/scratch/jmanthey/07_certhia_sim
+cd /lustre/scratch/jmanthey/07b_certhia_diplo
 
 # apparently the maketrainingsets command cannot have extra underscores
 rename 'americana_' 'americana' *
