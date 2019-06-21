@@ -13,7 +13,7 @@
 source activate selection
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -30,7 +30,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_0.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -47,7 +47,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_1.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -64,7 +64,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_2.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -81,7 +81,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_3.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -98,7 +98,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_4.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -115,7 +115,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_5.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -132,7 +132,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_6.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -149,7 +149,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_7.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -166,7 +166,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_8.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
@@ -183,7 +183,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_hard_9.msOut
 
 
-/home/jmanthey/discoal/discoal 7 1 220000 \
+/home/jmanthey/discoal/discoal 14 1 110000 \
 -Pt 663.2616 2653.0464 \
 -Pre 726 16588 \
 -ws 0 \
