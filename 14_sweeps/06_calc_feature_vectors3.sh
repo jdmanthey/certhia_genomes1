@@ -8,7 +8,7 @@
 #$ -P quanah
 #$ -l h_rt=48:00:00
 #$ -l h_vmem=8G
-#$ -t 1-11
+#$ -t 1-1
 
 source activate selection2
 
