@@ -10,9 +10,5 @@
 #$ -l h_vmem=8G
 #$ -t 1-26
 
-for i in $( ls *discoal.recode* ); do
-sed "s/discoal/diplo/g" $i;
-done
-
 vcftools --vcf ${SGE_TASK_ID}_diplo.recode.vcf --max-missing 0.5 --minQ 20 --minGQ 20 --minDP 5 \
 --min-alleles 2 --max-alleles 2 --mac 1 --max-meanDP 60 --recode --recode-INFO-all --remove-indels --out ${SGE_TASK_ID}_final
