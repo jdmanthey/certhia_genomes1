@@ -13,7 +13,7 @@
 source activate selection
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -29,7 +29,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_0.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -45,7 +45,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_1.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -61,7 +61,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_2.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -77,7 +77,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_3.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -93,7 +93,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_4.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -109,7 +109,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_5.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -125,7 +125,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_6.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -141,7 +141,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_7.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -157,7 +157,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_8.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
@@ -173,7 +173,7 @@ source activate selection
 >> output/${SGE_TASK_ID}-ame_soft_9.msOut
 
 
-/home/jmanthey/discoal/discoal 12 1 220000 \
+/home/jmanthey/discoal/discoal 24 1 110000 \
 -Pt 1095.224 4380.898 \
 -Pre 726 16588 \
 -ws 0 \
