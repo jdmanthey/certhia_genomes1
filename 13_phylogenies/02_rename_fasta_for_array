@@ -1,0 +1,18 @@
+# rename the fasta files for use in an array job on the cluster
+
+# in R:
+# list of all fasta files
+x <- list.files(pattern="*fasta")
+
+# concatenate to a renaming vector
+x <- cbind(x, paste(seq(from=1, to=length(x), by=1), ".fasta", sep=""))
+
+# write file
+write.table(x, file="certhia_fasta_rename.txt", sep="\t", quote=F, row.names=F, col.names=F)
+
+
+# in bash:
+while read -r name1 name2; do
+  mv $name1 $name2
+done < certhia_fasta_rename.txt
+
