@@ -7,15 +7,15 @@
 #$ -pe sm 1
 #$ -P quanah
 #$ -l h_rt=48:00:00
-#$ -l h_vmem=8G
-#$ -t 1-1500
+#$ -l h_vmem=16G
+#$ -t 1-2500
 
 source activate selection
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -30,9 +30,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_0.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -47,9 +47,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_1.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -64,9 +64,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_2.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -81,9 +81,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_3.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -98,9 +98,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_4.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -115,9 +115,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_5.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -132,9 +132,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_6.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -149,9 +149,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_7.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -166,9 +166,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_8.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
@@ -183,9 +183,9 @@ source activate selection
 >> output/${SGE_TASK_ID}-alb_soft_9.msOut
 
 
-/home/jmanthey/discoal/discoal 14 1 550000 \
--Pt 146.2941 1316.6473 \
--Pre 1815 41470 \
+/home/jmanthey/discoal/discoal 14 1 220000 \
+-Pt 58.51766 526.65893 \
+-Pre 726 16588 \
 -ws 0 \
 -Pa 79.574 7957.400 \
 -Pu 0 0.01570865 \
