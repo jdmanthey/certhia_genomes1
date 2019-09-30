@@ -13,5 +13,5 @@
 source activate selection2
 
 python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_neutral.txt.gz \
-albescens_neutral.fvec --totalPhysLen 110000 \
+albescens_neutral.fvec --totalPhysLen 220000 \
 --maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
