@@ -7,7 +7,7 @@ x_names <- paste(x_names, ".txt", sep="")
 num_individuals_albescens <- 14
 num_individuals_americana <- 24
 
-# we will keep the first 1000 simulations that finished for each 
+# we will keep the first 2000 simulations that finished for each 
 # loop for each file
 for(a in 1:length(x_files)) {
 	# read in file
@@ -32,9 +32,9 @@ for(a in 1:length(x_files)) {
 	write(a_rep[1], file=x_names[a], ncolumns=1)
 	write(a_rep[2], file=x_names[a], ncolumns=1, append=T)
 	
-	# get 1000 simulations for each file
+	# get 2000 simulations for each file
 	counter <- 1
-	while(counter <= 1000) {
+	while(counter <= 2000) {
 		write("", file=x_names[a], ncolumns=1, append=T)
 		write("//", file=x_names[a], ncolumns=1, append=T)
 		
