@@ -15,10 +15,10 @@ source activate selection2
 modnum=$((SGE_TASK_ID-1))
 
 python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_soft_${modnum}.txt.gz \
-albescens_soft_${modnum}.fvec --totalPhysLen 110000 \
+albescens_soft_${modnum}.fvec --totalPhysLen 220000 \
 --maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
 
 python ~/diploSHIC/diploSHIC.py fvecSim diploid albescens_hard_${modnum}.txt.gz \
-albescens_hard_${modnum}.fvec --totalPhysLen 110000 \
+albescens_hard_${modnum}.fvec --totalPhysLen 220000 \
 --maskFileName diplo_mask.fasta.gz --chrArmsForMasking all --numSubWins 11
 
