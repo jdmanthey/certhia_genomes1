@@ -1,7 +1,7 @@
 for i in $( ls albescens* ); do 
-sed -i "s/discoal 14 1 110000/discoal 14 999 110000/g" $i;
+sed -i "s/discoal 14 1 220000/discoal 14 1999 220000/g" $i;
 done
 
 for i in $( ls americana* ); do 
-sed -i -e "s/discoal 24 1 110000/discoal 24 999 110000/g" $i;
+sed -i -e "s/discoal 24 1 220000/discoal 24 1999 220000/g" $i;
 done
