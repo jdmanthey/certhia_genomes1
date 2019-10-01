@@ -1,10 +1,10 @@
-cd /lustre/scratch/jmanthey/07b_certhia_diplo
+cd /lustre/scratch/jmanthey/07_certhia_sim/rawFVFiles
 
 # apparently the maketrainingsets command cannot have extra underscores
 rename 'americana_' 'americana' *
 rename 'albescens_' 'albescens' *
 
-mkdir rawFVFiles && mv *.fvec rawFVFiles/
+cd ..
 
 mkdir training_americana
 mkdir training_albescens
