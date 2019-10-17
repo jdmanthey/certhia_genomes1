@@ -1,3 +1,14 @@
+
+# use mummer v4 to align the certhia genome to the zebra finch genome
+~/mummer/bin/nucmer -p certhia -t 12 finch_filtered.fasta certhia_hic_filtered.fasta
+
+~/mummer/bin/delta-filter -m -i 70 certhia.delta > certhia_filtered.delta
+
+~/mummer/bin/show-coords -l -q -T certhia_filtered.delta > certhia_filtered.txt
+
+
+
+# stuff below not used
 # use satsuma and R to create whole genome alignment with zebra finch chromosomes and make a circos plot
 
 export SATSUMA2_PATH=~/anaconda2/bin
@@ -13,11 +24,3 @@ export SATSUMA2_PATH=~/anaconda2/bin;
 j=${i%.fasta};
 SatsumaSynteny2 -q $i -t finch_filtered.fasta -o $j;
 done
-
-# use mummer v4 to align the certhia genome to the zebra finch genome
-~/mummer/bin/nucmer -p certhia -t 12 finch_filtered.fasta certhia_hic_filtered.fasta
-
-~/mummer/bin/delta-filter -m -i 70 certhia.delta > certhia_filtered.delta
-
-~/mummer/bin/show-coords -l -q -T certhia_filtered.delta > certhia_filtered.txt
-
