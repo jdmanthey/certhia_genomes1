@@ -7,4 +7,6 @@
 5. Training of the prediction algorithm (08*).
 6. Prepare SNP genotype vcfs for use in diploS/HIC (09* scripts).
 7. Use R script (10*) to create cluster submission jobs for turning the vcf files into feature vectors for two different sized windows (20 kbp and 50 kbp). 
-8.
+8. Predict patterns in empirical data from the simulation trained models (11*).
+9. Concatenate the output predictions (12*).
+10. Plot and explore output in R (13*).
