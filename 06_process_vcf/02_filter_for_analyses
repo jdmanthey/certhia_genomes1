@@ -29,7 +29,7 @@ done
 # for abba /baba and look at fixed shared private polymorphisms
 for i in $( ls *recode.vcf ); do
 j=${i%.recode.vcf}_biallelic;
-vcftools --vcf $i --max-missing 0.7 --min-alleles 2 --max-alleles 2 --mac 1 --recode --recode-INFO-all --out $j;
+vcftools --vcf $i --max-missing 0.6 --min-alleles 2 --max-alleles 2 --mac 1 --recode --recode-INFO-all --out $j;
 done
 
 
