@@ -35,11 +35,11 @@ vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 1.0 --minQ 20 --min
 bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n ' ${workdir}/04_biallelic_50kbp/${input_array}.recode.vcf > ${workdir}/04_biallelic_50kbp/${input_array}.simple.vcf
 
 # run vcftools with basic filtering and only keeping biallelic SNPs
-vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 0.6 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --remove-indels --recode --recode-INFO-all --out ${workdir}/05_biallelic_40p/${input_array}
+vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 0.6 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --min-alleles 2 --max-alleles 2 --mac 1 --remove-indels --recode --recode-INFO-all --out ${workdir}/05_biallelic_40p/${input_array}
 # run bcftools to simplify the vcftools output
 bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n ' ${workdir}/05_biallelic_40p/${input_array}.recode.vcf > ${workdir}/05_biallelic_40p/${input_array}.simple.vcf
 
-# run vcftools for biallelic SNPs separated by 50kbp with no missing data and maf of 0.1
-vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 1.0 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --min-alleles 2 --max-alleles 2 --mac 1 --maf 0.1 --thin 50000 --remove-indels --recode --recode-INFO-all --out ${workdir}/06_LD/${input_array}
+# run vcftools for biallelic SNPs separated by 50kbp with no missing data and maf of 0.2
+vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 1.0 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --min-alleles 2 --max-alleles 2 --mac 1 --maf 0.2 --thin 50000 --remove-indels --recode --recode-INFO-all --out ${workdir}/06_LD/${input_array}
 # run bcftools to simplify the vcftools output
 bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n ' ${workdir}/06_LD/${input_array}.recode.vcf > ${workdir}/06_LD/${input_array}.simple.vcf
