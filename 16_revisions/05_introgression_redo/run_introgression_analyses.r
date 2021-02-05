@@ -145,13 +145,14 @@ for(a in 1:nrow(intro_comps)) {
 		D <- sum(abba - baba) / sum(abba + baba)
 		fd <- sum(abba - baba) / sum(abba_donor - baba_donor)
 		if(fd < 0) { fd <- 0 }
-	}
+	
 	
 	output <- c(strsplit(filename_simple, ":")[[1]][1],
 				strsplit(strsplit(output_name, ":")[[1]][2], "-")[[1]][1],
 				strsplit(strsplit(strsplit(output_name, ":")[[1]][2], "-")[[1]][2], "__")[[1]][1],
 				p1, p2, p3, outgroup, nrow(p2_genotypes), D, fd)
-	write(output, ncolumns=10, file=output_name, sep="\t", append=T)		
+	write(output, ncolumns=10, file=output_name, sep="\t", append=T)
+	}
 }
 
 
