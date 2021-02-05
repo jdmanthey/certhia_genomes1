@@ -1,0 +1,7 @@
+P1	P2	P3	O
+mexico	chiricahua	utah	outgroup
+mexico	s_rita	utah	outgroup
+mexico	huachuca	utah	outgroup
+utah	pinaleno	mexico	outgroup
+utah	s_catalina	mexico	outgroup
+utah	pinal	mexico	outgroup
