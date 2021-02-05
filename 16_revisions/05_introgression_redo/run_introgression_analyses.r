@@ -5,7 +5,7 @@ args <- commandArgs(trailingOnly = TRUE)
 filename_simple <- strsplit(args[1], "windows/")[[1]][2]
 
 # define minimum number of polymorphic sites for an analysis 
-min_sites <- 500
+min_sites <- 200
 
 # no scientific notation
 options(scipen=999)
