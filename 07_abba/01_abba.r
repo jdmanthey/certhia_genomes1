@@ -75,9 +75,19 @@ abba_certhia <- function(xxx, output_number) {
 			b_rep3 <- b_rep3[b_rep3 != "./."]
 			
 			# proportion each allele
-			b_rep1 <- (length(b_rep1[b_rep1 == a_rep4[b]]) * 2 + length(b_rep1[b_rep1 == "0/1"])) / (length(b_rep1) * 2)
-			b_rep2 <- (length(b_rep2[b_rep2 == a_rep4[b]]) * 2 + length(b_rep2[b_rep2 == "0/1"])) / (length(b_rep2) * 2)
-			b_rep3 <- (length(b_rep3[b_rep3 == a_rep4[b]]) * 2 + length(b_rep3[b_rep3 == "0/1"])) / (length(b_rep3) * 2)
+			################################
+			################################
+			################################
+			## first version of this script and calculations contained this commented out error:
+			## the statistics were initially calculated with the proportion of ancestral alleles, 
+			## which is incorrect
+			## new script in revisions corrects this
+			################################
+			################################
+			################################
+			#b_rep1 <- (length(b_rep1[b_rep1 == a_rep4[b]]) * 2 + length(b_rep1[b_rep1 == "0/1"])) / (length(b_rep1) * 2)
+			#b_rep2 <- (length(b_rep2[b_rep2 == a_rep4[b]]) * 2 + length(b_rep2[b_rep2 == "0/1"])) / (length(b_rep2) * 2)
+			#b_rep3 <- (length(b_rep3[b_rep3 == a_rep4[b]]) * 2 + length(b_rep3[b_rep3 == "0/1"])) / (length(b_rep3) * 2)
 			
 			# add to output
 			d1 <- c(d1, b_rep1)
@@ -106,10 +116,19 @@ abba_certhia <- function(xxx, output_number) {
 				b_rep2 <- b_rep2[b_rep2 != "./."]
 				b_rep3 <- b_rep3[b_rep3 != "./."]
 			
-				# proportion each allele
-				b_rep1 <- (length(b_rep1[b_rep1 == a_rep4[b]]) * 2 + length(b_rep1[b_rep1 == "0/1"])) / (length(b_rep1) * 2)
-				b_rep2 <- (length(b_rep2[b_rep2 == a_rep4[b]]) * 2 + length(b_rep2[b_rep2 == "0/1"])) / (length(b_rep2) * 2)
-				b_rep3 <- (length(b_rep3[b_rep3 == a_rep4[b]]) * 2 + length(b_rep3[b_rep3 == "0/1"])) / (length(b_rep3) * 2)
+				################################
+				################################
+				################################
+				## first version of this script and calculations contained this commented out error:
+				## the statistics were initially calculated with the proportion of ancestral alleles, 
+				## which is incorrect
+				## new script in revisions corrects this
+				################################
+				################################
+				################################# proportion each allele
+				#b_rep1 <- (length(b_rep1[b_rep1 == a_rep4[b]]) * 2 + length(b_rep1[b_rep1 == "0/1"])) / (length(b_rep1) * 2)
+				#b_rep2 <- (length(b_rep2[b_rep2 == a_rep4[b]]) * 2 + length(b_rep2[b_rep2 == "0/1"])) / (length(b_rep2) * 2)
+				#b_rep3 <- (length(b_rep3[b_rep3 == a_rep4[b]]) * 2 + length(b_rep3[b_rep3 == "0/1"])) / (length(b_rep3) * 2)
 			
 				# add to output
 				d1 <- c(d1, b_rep1)
