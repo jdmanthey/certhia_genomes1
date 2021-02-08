@@ -1,20 +1,20 @@
 
 
-tabix /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/Ca_0002_Tg_1.recode.vcf.gz \
-Ca_0002_Tg_1:45600001-64600000 > temp1.vcf
+tabix /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/Ca_0001_Tg_2.recode.vcf.gz \
+Ca_0001_Tg_2:45600001-64600000 > temp1.vcf
 
 cat /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/header.vcf \
-temp1.vcf > /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0002_Tg_1:45600001-64600000.vcf
+temp1.vcf > /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0001_Tg_2:45600001-64600000.vcf
 
 rm temp1.vcf
 
-vcftools --vcf /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0002_Tg_1:45600001-64600000.vcf \
+vcftools --vcf /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0001_Tg_2:45600001-64600000.vcf \
 --max-missing 1.0 --maf 0.04 --recode --recode-INFO-all --remove-indv 25 --min-alleles 2 --max-alleles 2 --mac 1 \
---out /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0002_Tg_1:45600001-64600000
+--out /lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0001_Tg_2:45600001-64600000
 
 bcftools query -f '%POS\t%REF\t%ALT[\t%GT]\n' \
-/lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0002_Tg_1:45600001-64600000.recode.vcf > \
-/lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0002_Tg_1:45600001-64600000.simple.vcf
+/lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0001_Tg_2:45600001-64600000.recode.vcf > \
+/lustre/scratch/jmanthey/05_certhia_genomics/03_vcf/05_biallelic_40p/outliers/Ca_0001_Tg_2:45600001-64600000.simple.vcf
 
 
 
