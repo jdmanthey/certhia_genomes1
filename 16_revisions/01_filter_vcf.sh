@@ -43,3 +43,10 @@ bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n ' ${workdir}/05_biallelic_4
 vcftools --vcf ${workdir}/${input_array}.g.vcf --max-missing 1.0 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --min-alleles 2 --max-alleles 2 --mac 1 --maf 0.2 --thin 50000 --remove-indels --recode --recode-INFO-all --out ${workdir}/06_LD/${input_array}
 # run bcftools to simplify the vcftools output
 bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%GT]\n ' ${workdir}/06_LD/${input_array}.recode.vcf > ${workdir}/06_LD/${input_array}.simple.vcf
+
+# run vcftools with filtering for fastsimcoal
+# max alleles = 2
+# no missing individuals
+# outgroup removed
+vcftools --vcf ${workdir}/${input_array}.g.vcf --remove-indv 25 --max-missing 1.0 --minQ 20 --minGQ 20 --minDP 5 --max-meanDP 50 --max-alleles 2 --remove-indels --recode --recode-INFO-all --out ${workdir}/07_fastsimcoal/${input_array}
+
