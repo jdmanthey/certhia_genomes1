@@ -1,0 +1,1 @@
+Files included are all of the fastsimcoal2 est and tpl files for the demographic models analyzed, as well as the several steps used to run fsc, estimate likelihood ranges, and calculate bootstrapped confidence intervals with the secondary contact model.
